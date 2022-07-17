@@ -7,3 +7,5 @@
 </p>
 
 # 打赏
+![图片(https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true)]
+![图片(https://github.com/Groupguanfang/TD/blob/Alpha/~Git/wechat.jpg?raw=true)]

@@ -1,5 +1,6 @@
+<mark>版本：0.6</mark>
+
 # 欢迎
-<key>版本：0.6</key>
 <p>
 这个主题，是免费开源的，而且是可商用的。我们采用了Vue+TDesign作为前端、WordPress作为后端。
 <br>

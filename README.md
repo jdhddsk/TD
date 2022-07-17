@@ -8,6 +8,6 @@
 
 # 打赏
 <div style="display:flex">
-        <img width="30%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true" alt="支付宝">
-        <img src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/wechat.jpg?raw=true" alt="微信">
+        <img width="50%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true" alt="支付宝">
+        <img width="50%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/wechat.jpg?raw=true" alt="微信">
 </div>

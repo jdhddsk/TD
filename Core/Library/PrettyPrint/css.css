@@ -1,0 +1,59 @@
+.prettyprint {
+    background: #272822;
+    border: 0 !important;
+    width: 100%;
+    padding: 1.5em;
+    font-family: "Courier 10 Pitch",Courier,monospace;
+    font-size: .9375rem;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow: auto;
+}
+ol.linenums {
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    color: #656d78!important;
+}
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
+    padding-left: .5em;
+    background-color: #272822;
+    list-style-type: decimal;
+}
+pre code {
+    padding: 0;
+    border-radius: 0;
+}
+.entry-content pre code, .content-show-roles pre code {
+    background: 0 0;
+    white-space: pre;
+}
+pre .pln {
+    color: #00d7ff;
+}
+pre .pun {
+    color: #fff;
+}
+pre .kwd {
+    color: #ff0000;
+}
+pre .typ {
+    color: #8ae22b;
+}
+pre .str {
+    color: #8ae22b;
+}
+pre .tag {
+    color: #ff007e;
+}
+pre .atn {
+    color: #9ab323;
+}
+pre .atv {
+    color: #9ab323;
+}
+pre .lit {
+    color: #7a94ff;
+}
+pre .com {
+    color: #fff;
+}

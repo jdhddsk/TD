@@ -1,0 +1,120 @@
+main.gcz-mobile-main {
+    margin-top: 50px;
+}
+#gcz-mobile-modules-empty {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+#Header,.UnHeader {
+    box-shadow: 3px 3px 8px 2px #0000000f;
+}
+.Public-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    height: 45px;
+}
+.Public-Header svg {
+    font-size: 24px;
+}
+.Public-Header-Right {
+    display: flex;
+    align-items: center;
+}
+.space {
+    margin-right: 10px;
+}
+.gcz-page .t-drawer__body {
+    padding: 0;
+}
+.UnHeader {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+}
+.UnHeader .title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    left: -10px;
+    color: #000;
+    font-size: 16px;
+}
+.UnHeader .icon {
+    font-size: 24px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.UnBody {
+    margin-top: 45px;
+    padding: 10px;
+}
+.UnBody.No-Padding {
+    padding: 0;
+}
+.UnBody.No-Margin {
+    margin: 0;
+}
+.gcz-mobile-search {
+    display: flex;
+}
+#gcz-mobileuser-info .t-card__footer {
+    backdrop-filter: brightness(0.25);
+    -webkit-backdrop-filter: brightness(0.25);
+    -moz-backdrop-filter: brightness(0.25);
+    height: 100%;
+}
+#gcz-mobileuser-info .t-comment__name {
+    color: #fff;
+}
+#gcz-mobileuser-info .t-comment__detail {
+    color: #888;
+}
+#gcz-mobileuser-action, #gcz-mobileuser-action-left {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+}
+#gcz-mobileuser-action {
+    margin-top: 50px;
+}
+#gcz-mobileuser-action-fans {
+    margin: 0 7px;
+}
+#gcz-mobileuser-action-left p {
+    color: #888;
+    margin-top: 0;
+}
+
+
+
+/** navbtn **/
+
+.gcz-mobile-navbtn-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+}
+.gcz-mobile-navbtn-item img {
+    width:100%
+}
+.gcz-mobile-navbtn-item .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

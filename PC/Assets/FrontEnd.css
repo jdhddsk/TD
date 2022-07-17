@@ -1,0 +1,19 @@
+.wp-block-image figcaption {
+    transform: translate(0, -40px);
+    padding: 9px;
+    backdrop-filter: blur(8px) brightness(0.5);
+    opacity: 0;
+    transition: ease 0.2s;
+    z-index: 999;
+}
+.wp-block-image figure:hover figcaption {
+    background: #0000;
+    width: 100%;
+    backdrop-filter: blur(8px) brightness(0.5);
+    transform: translate(0, -45px);
+    padding: 9px;
+    opacity: 1;
+    transition: ease 0.2s;
+    color: #fff;
+    z-index: 999;
+}

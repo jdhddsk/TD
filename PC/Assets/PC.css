@@ -1,0 +1,90 @@
+.gcz-rounds .t-card__footer-wrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.gcz-templateparts figcaption {
+    position: absolute;
+    transform: translate(0, -36px);
+    transition: ease 0.2s;
+    opacity: 0;
+    z-index: 99;
+    background: #fff0;
+    backdrop-filter: blur(23px) brightness(0.5);
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.gcz-templateparts .td-t-swiper-item:hover figcaption {
+    opacity: 1;
+    transition: ease 0.2s;
+    transform: translate(0, -39px);
+}
+.gcz-templateparts .td-t-swiper-item img,aside .wp-block-image img,.gcz-rounds .t-card__cover img {
+    transition: ease 0.2s;
+}
+.gcz-templateparts .td-t-swiper-item:hover img,aside .wp-block-image:hover img,.gcz-rounds .t-card:hover .t-card__cover img {
+    transform: scale(1.05);
+    transition: ease 0.2s;
+}
+aside .wp-block-image,.gcz-rounds .t-card__cover {
+    overflow: hidden;
+}
+
+/** 侧边栏图片 **/
+aside .wp-block-image figcaption {
+    position: absolute;
+    transform: translate(0, -40px);
+    transition: ease 0.2s;
+    opacity: 0;
+    z-index: 99;
+    background: #fff0;
+    backdrop-filter: blur(23px) brightness(0.5);
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+aside .wp-block-image:hover figcaption {
+    opacity: 1;
+    transform: translate(0, -44px);
+    transition: ease 0.2s;
+}
+
+.gcz-user-panel {
+    background: #fff;
+}
+.gcz-user-panel a {
+    color: var(--td-brand-color);
+    text-decoration: none;
+}
+.gcz-user-panel .gcz-user-headering {
+    width: 100%;
+}
+.gcz-user-panel .information {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -24px;
+}
+.gcz-user-panel .information .text {
+    margin-left: 10px;
+}
+.gcz-user-panel .releasedposts {
+    position: relative;
+    top: -24px;
+}
+.gcz-user-panel .userwzlist {
+    padding: 0 14px;
+    list-style-type: none;
+}
+.gcz-user-panel .userwzlist li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}

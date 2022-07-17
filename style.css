@@ -1,0 +1,216 @@
+/*
+Theme Name: GCZ TD
+Theme URI: https://td.xhhzs.cn
+Author: Zero
+Author URI: https://blog.xhhzs.cn
+Description: 无限自定义主题，可以随时添加任何自定义模块和短代码用于文章、页面、帖子等任何地方。内置虎皮椒支付系统、会员、积分余额私信系统等，让这款主题变的更为强大。
+Version: 0.6
+Text Domain: gcz
+*/
+a {
+    text-decoration: none;
+    transition: ease 0.2s;
+    color: var(--td-brand-color);
+}
+.wp-block-list a {
+    color: #06f!important;
+}
+a:hover {
+    opacity: 0.8;
+    transition: ease 0.2s;
+}
+a:hover::after {
+    transform: rotate(-45deg);
+    transition: ease 0.2s;
+}
+a:visited {
+    color: var(--td-brand-color);
+}
+a[target=_blank]:after {
+    content: " ";
+    transition: ease 0.2s;
+    background: currentColor;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 1em;
+    height: 1em;
+    float: left;
+    position: relative;
+    top: 2px;
+    left: -2px;
+    color: #00e;
+    mask-image: url('data:image/svg+xml;charset=utf-8,<svg t="1657695280048" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="683" width="200" height="200"><path d="M512 981.333333C252.8 981.333333 42.666667 771.2 42.666667 512S252.8 42.666667 512 42.666667s469.333333 210.133333 469.333333 469.333333-210.133333 469.333333-469.333333 469.333333z m0-85.333333a384 384 0 1 0 0-768 384 384 0 0 0 0 768z m85.333333-409.002667l-225.834666 225.834667-60.330667-60.330667L537.002667 426.666667H384V341.333333h298.666667v298.666667h-85.333334v-153.002667z" p-id="684"></path></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg t="1657695280048" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="683" width="200" height="200"><path d="M512 981.333333C252.8 981.333333 42.666667 771.2 42.666667 512S252.8 42.666667 512 42.666667s469.333333 210.133333 469.333333 469.333333-210.133333 469.333333-469.333333 469.333333z m0-85.333333a384 384 0 1 0 0-768 384 384 0 0 0 0 768z m85.333333-409.002667l-225.834666 225.834667-60.330667-60.330667L537.002667 426.666667H384V341.333333h298.666667v298.666667h-85.333334v-153.002667z" p-id="684"></path></svg>');
+}
+article {
+    font-size: 16px;
+}
+li {
+    margin: 10px 0;
+}
+li::marker {
+    color: #888;
+}
+.gcz-rounds a:after {
+    content: '';
+    display: none;
+}
+.t-menu a:visited {
+    color: #fff;
+}
+#gcz-article {
+    padding: 10px 20px;
+    background: #fff;
+    margin-bottom: 12px;
+}
+.wp-block-quote {
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    border-left: 5px solid #888;
+    margin: 10px 0;
+    padding: 10px 0;
+    padding-left: 14px;
+    background: #f5f6f7;
+}
+.wp-block-quote.is-style-plain {
+    border-left: 5px blue solid;
+}
+.wp-block-quote p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+/** 无模块 **/
+#gcz-pc-modules-empty {
+    text-align: center;
+    margin-top: 5%;
+    color: #888;
+}
+/** 404 **/
+#gcz-404-container {
+    color: var(--td-brand-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#gcz-404-title {
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 8px;
+    line-height: 28px;
+    color: var(--td-text-color-primary);
+    font-size: 20px;
+}
+#gcz-404-tips {
+    margin: 8px 0 32px;
+    font-size: 14px;
+    color: var(--td-text-color-secondary);
+    line-height: 22px;
+}
+/** 主容器大小 **/
+#td-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+aside.widget {
+    width: 300px;
+    margin-left: 10px;
+    height: auto;
+    margin-bottom: 10px;
+    position: relative;
+    float: left;
+}
+aside.widget .wp-block-image {
+    margin: 0 0 0;
+}
+.gcz-width {
+    width: 1080px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.gcz-pc-main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 80px;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--td-bg-color-page);
+}
+.gcz-templateparts {
+    display: flex;
+    margin-bottom: 10px;
+}
+#WorkSpace {
+    margin-top: 64px;
+}
+#gcz-pc-header .t-menu__operations {
+    margin-right: 24px;
+}
+
+/** 侧边栏 **/
+.td-side-list {
+    margin-top: 20px;
+}
+.td-side-list-item {
+    padding: 10px;
+}
+.td-side-list-item.money .t-card,.td-side-list-item.money .t-card .t-card__title,.td-side-list-item.money .t-card .t-card__actions a {
+    background:var(--td-brand-color);
+    color:#fff;
+    text-decoration: none;
+}
+.td-side-list-item.money .t-card .t-card__body {
+    display: flex;
+    flex-direction: column;
+}
+.td-side-list-item.money .t-card .t-card__body .money-number {
+    font-size: 24px;
+}
+.td-side-title {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.td-side-title-option {
+    text-decoration: none;
+    color: #06f;
+    transition: ease 0.2s;
+    display: flex;
+    align-items: center;
+}
+.td-side-title-option div {
+    display: flex;
+    align-items: center;
+    transition: ease 0.2s;
+}
+.td-side-title-option:hover svg {
+    transform: translateX(2px);
+    transition: ease 0.2s;
+}
+.td-side-title-option svg {
+    transition: ease 0.2s;
+}
+.td-side-content {
+    margin-bottom: 10px;
+    color: #000;
+}
+/** 收银台 **/
+.gczPavement .t-drawer__body {
+    padding: 0;
+    overflow: hidden;
+}
+/** single **/
+.gcz-likes {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/** 幻灯片 **/
+.gcz-templateparts .t-swiper__content {
+    height: 100%;
+}

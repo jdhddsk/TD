@@ -6,8 +6,12 @@
 这个主题使用Apache协议开源，请注意该证书的使用注意事项。
 </p>
 
+# 简介
+## 特性
+多功能主题，
+
 # 打赏
-<div style="display:flex">
-        <img width="50%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true" alt="支付宝">
-        <img width="50%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/wechat.jpg?raw=true" alt="微信">
+<div>
+    <img width="50%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true" alt="支付宝">
+    <img width="50%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/wechat.jpg?raw=true" alt="微信">
 </div>

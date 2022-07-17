@@ -9,9 +9,9 @@
 # 打赏
 <div style="display:flex">
     <div>
-    ![支付宝](https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true)
+        <img src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true" alt="支付宝">
     </div>
     <div>
-    ![微信](https://github.com/Groupguanfang/TD/blob/Alpha/~Git/wechat.jpg?raw=true)
+        <img src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/wechat.jpg?raw=true" alt="微信">
     </div>
 </div>

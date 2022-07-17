@@ -1,9 +1,11 @@
 # 欢迎
-<p>
-这个主题，是开源的，而且是可商用的。我们采用了Vue+TDesign作为前端的方式进行开发，
-</p>
-# GCZ TD工程结构
 
+<p>
+这个主题，是开源的，而且是可商用的。我们采用了Vue+TDesign作为前端、WordPress作为后端。
+</p>
+
+
+# GCZ TD工程结构
 <p>
 Core&emsp;&emsp;                 核心文件，G开头文件为API接口<br>
 |—— Library&emsp;&emsp;             第三方依赖库<br>

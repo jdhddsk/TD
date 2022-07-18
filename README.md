@@ -18,6 +18,17 @@
 ## 演示站
 https://td.xhhzs.cn
 
+## 安装方法
+
+### 第一种（推荐）
+请前往 https://github.com/Groupguanfang/TD/releases 下载最新的releases，并在WordPress后台上传之后启用。
+
+### 第二种
+如果您擅长git命令，即可使用下面的命令下载源码：
+```
+git clone https://github.com/Groupguanfang/TD
+```
+
 # 打赏
 <div>
     <img width="50%" src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/alipay.jpg?raw=true" alt="支付宝">

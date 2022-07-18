@@ -26,6 +26,7 @@ https://td.xhhzs.cn
 ### 第二种
 如果您擅长git命令，即可使用下面的命令下载源码：
 ```
+cd {你的站点目录}/wp-content/themes
 git clone https://github.com/Groupguanfang/TD
 ```
 

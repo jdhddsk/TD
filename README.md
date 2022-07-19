@@ -21,7 +21,7 @@ https://td.xhhzs.cn
 ## 安装方法
 
 ### 第一种（推荐）
-请前往 https://github.com/Groupguanfang/TD/releases 下载最新的releases，并在WordPress后台上传之后启用。
+请前往 https://github.com/Groupguanfang/TD/releases 下载最新的releases，并在WordPress后台上传之后启用。  
 请确保主题文件夹名为“GCZ TD”，否则报错。  
 
 ### 第二种

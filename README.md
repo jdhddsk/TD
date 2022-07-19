@@ -29,6 +29,7 @@ https://td.xhhzs.cn
 $ cd {你的站点目录}/wp-content/themes
 $ git clone https://github.com/Groupguanfang/TD
 ```
+请将源码根文件夹名“TD”重命名为“GCZ TD”，否则极可能报错。
 之后，您即可在WordPress后台启用本主题。
 
 # 打赏

@@ -18,6 +18,9 @@
 ## 演示站
 https://td.xhhzs.cn
 
+## 帮助/开发文档
+https://docs.gcztheme.cn
+
 ## 安装方法
 
 ### 第一种（推荐）

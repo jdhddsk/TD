@@ -1,4 +1,4 @@
-<kbd>目前版本：0.6</kbd>
+<kbd>目前版本：0.8.5</kbd>
 
 <img src="https://github.com/Groupguanfang/TD/blob/Alpha/~Git/GCZ%20TD.png?raw=true" alt="GCZ TD">
 

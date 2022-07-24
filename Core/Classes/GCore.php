@@ -113,31 +113,16 @@ class GCZ_Core {
         
         // 登录与注册API
         if (!is_user_logged_in()) {
-            require $this->GCZ_ROOT.'/Core/GLogin.php';
-            require $this->GCZ_ROOT.'/Core/GRegister.php';
+            $file = glob(GCZ_ROOT."/Inc/Login/*.php");
+            foreach ($file as $filename) {
+                require $filename;
+            }
         }
-        // 文章点赞API
-        require $this->GCZ_ROOT.'/Core/GLikes.php';
-        // 评论API
-        require $this->GCZ_ROOT.'/Core/GComments.php';
-        // 投稿API
-        require $this->GCZ_ROOT.'/Core/GWrite.php';
-        // 用户API
-        require $this->GCZ_ROOT.'/Core/GUser.php';
-        // 查询订单API
-        require $this->GCZ_ROOT.'/Core/GCredit.php';
-        // 统计API
-        require $this->GCZ_ROOT.'/Core/GPost.php';
-        // 邮件验证码API
-        require $this->GCZ_ROOT.'/Core/GMail.php';
-        // 登出API
-        require $this->GCZ_ROOT.'/Core/GLogout.php';
-        // 添加购物车API
-        require $this->GCZ_ROOT.'/Core/GAddCharts.php';
-        // 删除购物车API
-        require $this->GCZ_ROOT.'/Core/GDelCharts.php';
-        // 获取VIP信息API
-        require $this->GCZ_ROOT.'/Core/GVip.php';
+        
+        $file = glob(GCZ_ROOT."/Inc/*.php");
+        foreach ($file as $filename) {
+            require $filename;
+        }
     }
     /**
      * Function：菜单注册
@@ -227,8 +212,18 @@ class GCZ_Core {
         $gcz = get_option('gcz_options');
         $arr = array();
         if (is_array($gcz['gcz-level'])) {
-            foreach($gcz['gcz-level'] as $role) {
-                $arr[$role['gcz-level-id']] = $role['gcz-level-name'];
+            for ($i=0;$i<count($gcz['gcz-level']);$i++) {
+                $arr[$i] = $gcz['gcz-level'][$i]['gcz_level_name'];
+            }
+        }
+        return $arr;
+    }
+    public function gcz_vips() {
+        $gcz = get_option('gcz_options');
+        $arr = array();
+        if (is_array($gcz['gcz-vips'])) {
+            for ($i=0;$i<count($gcz['gcz-vips']);$i++) {
+                $arr[$i] = $gcz['gcz-vips'][$i]['gcz_vips_name'];
             }
         }
         return $arr;

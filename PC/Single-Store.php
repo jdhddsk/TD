@@ -1,3 +1,4 @@
+<?php $Core = new GCZ_Core; ?>
 <div id="app">
     <t-layout>
         <main class="gcz-pc-main">
@@ -30,11 +31,13 @@
                         </div>
                         <t-form>
                             <t-form-item label="数量">
-                                <t-input-number v-model="TDStoreCount" :min="1"></t-input-number>
+                                <t-input-number @change="countChange" v-model="TDStoreCount" :min="1"></t-input-number>
                             </t-form-item>
                             <t-form-item class="gcz-store-action">
-                                <t-button size="large" style="margin-right:12px">购买</t-button>
-                                <t-button size="large" variant="base" theme="default">加入购物车</t-button>
+                                <a class="noicon" target="_blank" :href="TDBuyLink">
+                                    <t-button size="large" style="margin-right:12px">购买</t-button>
+                                </a>
+                                <t-button :loading="addChartsLoading" @click="addCharts('<?php echo get_the_ID(); ?>','<?php the_title(); ?>','<?php echo get_post_meta(get_the_ID(),'gcz_store_swiper',true)[0]['gcz_store_swiper_item']; ?>')" size="large" variant="base" theme="default">加入购物车</t-button>
                             </t-form-item>
                         </t-form>
                     </div>
@@ -50,7 +53,34 @@
 <script>
     let StoreSingle = new Vue({
         data: {
-            TDStoreCount:1
+            TDStoreCount:1,
+            addChartsLoading: false,
+            TDBuyLink:'<?php echo '/'.$Core->td_get_page('Pages/Vandilate.php'); ?>?count=1&id=<?php echo get_the_ID(); ?>',
+        },
+        methods: {
+            countChange() {
+                this.TDBuyLink = '<?php echo '/'.$Core->td_get_page('Pages/Vandilate.php'); ?>?count='+this.TDStoreCount+'&id=<?php echo get_the_ID(); ?>';
+            },
+            addCharts(id,title,image) {
+                let that = this;
+                this.addChartsLoading = true;
+                axios.get('/wp-admin/admin-ajax.php',{
+                    params: {
+                        action: 'td_add_charts',
+                        post_id: id,
+                        post_title: title,
+                        image: image,
+                        count: that.TDStoreCount
+                    }
+                })
+                .then(function(response) {
+                    console.log(response);
+                    setTimeout(() => {
+        	           that.addChartsLoading = false;
+        	        },1000);
+                    that.$notify.success({ title: response.data.message, content: '<a href="点击前往购物车"></a>'});
+                })
+            }
         }
     }).$mount('#app')
 </script>

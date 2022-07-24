@@ -1,9 +1,8 @@
 <?php
 define("GCZ_URI", get_stylesheet_directory_uri());
-define("@", get_stylesheet_directory_uri().'/Core/Library');
+define("TD", get_stylesheet_directory_uri().'/Core/Library');
 define("GCZ_ROOT",get_template_directory());
-define("GCZ_VERSION","0.6");
-require 'Core/DataBase.php';
+define("GCZ_VERSION","0.7");
 require 'Core/Classes/GCore.php';
 require 'Core/Classes/GQQ.php';
 $gcz = get_option('gcz_options');
@@ -11,6 +10,13 @@ $gcz = get_option('gcz_options');
 /**
  * OutPut
  */
+$Core = new GCZ_Core;
+$Core->gcz_register_menus();
+$Core->td_api();
+$Core->gcz_pavement_init();
+$Core->td_auto_register_widget_init();
+
+
 function gcz_money($order) {
     global $wpdb;
     $sql = "SELECT gcz_money FROM `wp_gcz_order` WHERE gcz_order = ".$order."";
@@ -26,29 +32,39 @@ function gcz_get_limit() {
         return $level;
     }
 }
-$Core = new GCZ_Core;
-$Core->gcz_register_menus();
-$Core->td_api();
-$Core->gcz_pavement_init();
-$Core->td_auto_register_widget_init();
-require GCZ_ROOT.'/Core/GPingYing.php';
 
-function gcz_get_level($ID,$Cap) {
+/**
+ * @param 权限判断
+ * @author Zero
+ * @since 2022
+ */
+function gcz_get_level($ID = '',$Cap = '') {
     if (isset($ID)) {
         $ID = get_current_user_id();
     }
     
-    $gcz = get_option('gcz_options');
-    foreach ($gcz['gcz-level'] as $k) {
-        if (in_array($ID,$k['gcz_level_tabbed']['gcz_level_people'])) {
-            if ($k['gcz_level_tabbed'][$Cap]) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+    $gcz   = get_option('gcz_options');
+    $level = get_user_meta($ID,'gcz_level',true);
+    
+    if ($gcz['gcz-level'][$level]['gcz_level_tabbed'][$Cap] == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function gcz_get_vips($ID = '',$Cap = '') {
+    if (isset($ID)) {
+        $ID = get_current_user_id();
+    }
+    
+    $gcz  = get_option('gcz_options');
+    $vips = get_user_meta($ID,'gcz_vips',true);
+    
+    if ($gcz['gcz-vips'][$vips]['gcz_vips_tabbed'][$Cap] == true) {
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -105,6 +121,26 @@ function gcz_footer() {
 }
 add_action('wp_footer', 'gcz_footer');
 
+// 字数统计
+function cnwper_count_words($text) {
+	global $post;
+	if ( '' == $text ) {
+		$text = $post->post_content;
+		if (mb_strlen($output, 'UTF-8') < mb_strlen($text, 'UTF-8')) $output .= '<span class="word-count">' . mb_strlen(preg_replace('/\s/','',html_entity_decode(strip_tags($post->post_content))),'UTF-8') .'</span>';
+		return $output;
+	}
+}
+
+// 统计预估阅读时间
+function count_words_read_time() {
+	global $post;
+	$text_num = mb_strlen(preg_replace('/\s/','',html_entity_decode(strip_tags($post->post_content))),'UTF-8');
+	$read_time = ceil($text_num/300); // 修改数字300调整时间
+	$output .= '本文共计' . $text_num . '个字，预计阅读时长' . $read_time  . '分钟';
+	return $output;
+}
+
+// 文章浏览量
 function td_views($before = '点击 ', $after = ' 次', $echo = 1){
     global $post;
     $post_ID = $post->ID;
@@ -141,16 +177,62 @@ function gcz_auto_math($e) {
     $math = 100/$format;
     return $math;
 }
-function td_block() {
-    wp_register_script(
-        'block-js',
-        GCZ_URI.'/Core/Script/Block.js',
-        array('wp-blocks', 'wp-element', 'wp-editor', 'wp-i18n'),
-        GCZ_VERSION
-    );
-    register_block_type( 'fishtheme/block', array(
-            'editor_script' => 'block-js'
-        )
-    );
+
+/**
+ * @param string 等级数组
+ * since 2022
+ * author Zero
+ */
+function gcz_level_init() {
+    $gcz = get_option('gcz_options');
+    $arr = array();
+    foreach ($gcz['gcz-level'] as $item) {
+        $arr[$item['gcz_level_name']] = $item['gcz_level_name'];
+        return $arr;
+    }
 }
-add_action( 'init', 'td_block' );
+function gcz_vips_init() {
+    $gcz = get_option('gcz_options');
+    $arr = array();
+    foreach ($gcz['gcz-vips'] as $item) {
+        $arr[$item['gcz_vips_name']] = $item['gcz_vips_name'];
+        return $arr;
+    }
+}
+/**
+ * @param string 隐藏内容
+ * since 2022
+ * author Zero
+ */
+function gcz_hide_field($arr) {
+    return $arr['gcz-hide-content'];
+}
+add_shortcode('gcz-hide','gcz_hide_field');
+
+function the_price($id,$count) {
+    if (get_post_meta($id,'gcz_store_discount_price',true) == get_post_meta($id,'gcz_store_default_price',true)) {
+            echo get_post_meta($id,'gcz_store_default_price',true) * $count;
+        } else {
+            echo get_post_meta($id,'gcz_store_discount_price',true) * $count;
+    }
+}
+
+function get_the_price($id,$count) {
+    if (get_post_meta($id,'gcz_store_discount_price',true) == get_post_meta($id,'gcz_store_default_price',true)) {
+            return get_post_meta($id,'gcz_store_default_price',true) * $count;
+        } else {
+            return get_post_meta($id,'gcz_store_discount_price',true) * $count;
+    }
+}
+
+/**
+ * @param 公告
+ * since 2022
+ * author Zero
+ */
+function td_get_position() {
+    $gcz        = get_option('gcz_customize');
+    $lastest    = count($gcz['gcz_notice']);
+    $final      = $gcz['gcz_notice'][$lastest-1]['gcz_notice_position'];
+    return $final;
+}

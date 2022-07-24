@@ -2,6 +2,8 @@ let Header = new Vue({
     data: {
         // 全屏加载
         loading:false,
+        Mode:false,
+        ModeCookie: document.cookie.replace(/(?:(?:^|.*;\s*)darkmode\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
         // 搜索
         TDSearchVisible: false,
         TDSearchInput:'',
@@ -40,15 +42,36 @@ let Header = new Vue({
         gczWxIframe:'',
     },
     mounted() {
+        let that = this;
         $(document).ready(function() {
             $("pre").addClass("prettyprint linenums gcz-radius");
             $("figcaption").addClass("gcz-radius");
             $("img").addClass("gcz-radius");
             $("#charts .t-list-item__meta-avatar").addClass("gcz-radius");
             $("blockquote").addClass("gcz-radius");
+            
+            if (that.ModeCookie == 'true') {
+                that.Mode = true;
+                document.documentElement.setAttribute('theme-mode', 'dark');
+                $("body").addClass("dark");
+            }
         });
     },
     methods: {
+        // 暗黑模式切换
+        TDDarkMode:function() {
+            if (this.Mode === true) {
+                document.documentElement.setAttribute('theme-mode','dark');
+                $('#td-header').addClass('dark');
+                $('body').addClass('dark');
+                document.cookie = "darkmode=true";
+            } else if (this.Mode === false) {
+                document.documentElement.removeAttribute('theme-mode');
+                $('#td-header').removeClass('dark');
+                $('body').removeClass('dark');
+                document.cookie = "darkmode=false";
+            }
+        },
         // 退出登录
         TDLoggoutWindow:function() {
             this.TDLoggout = false;

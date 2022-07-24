@@ -5,8 +5,13 @@ global $current_user;
 $user_id = get_current_user_id();
 ?>
 <div id="gcz-pc-header">
+    <!--公告-->
+    <?php if (td_get_position() == 'top') { ?>
+    <t-message :duration="0" content="这里是 Message 信息" :close-btn="true" style="box-shadow: none;width: 100%;"></t-message>
+    <?php } ?>
+    
     <!--菜单-->
-    <t-head-menu theme="dark">
+    <t-head-menu>
         <?php
             $menuParameters = array(
                 'theme_location' =>'header_menu',
@@ -18,17 +23,26 @@ $user_id = get_current_user_id();
             echo wp_nav_menu( $menuParameters );
         ?>
         <template #operations>
+            <?php if (in_array("暗黑模式切换",$gcz['gcz-header']['enabled'])) { ?>
+            <a href="javascript:;">
+                <t-switch size="large" style="margin-right: 16px;" :label="['暗', '亮']" @change="TDDarkMode()" v-model="Mode"></t-switch>
+            </a>
+            <?php } ?>
+            <?php if (in_array("搜索",$gcz['gcz-header']['enabled'])) { ?>
             <a href="javascript:;" @click="TDSearch()">
-                <t-icon class="t-menu__operations-icon" name="search"/>
+                <t-icon class="t-menu__operations-icon" name="search"></t-icon>
             </a>
-            <?php if(!is_user_logged_in()) { ?>
-            <a href="javascript:;" @click="TDLogin()">
-                <t-icon class="t-menu__operations-icon" name="user-circle"/>
-            </a>
-            <?php } else { ?>
-            <a href="javascript:;" @click="TDSide()" style="text-decoration:none">
-                <?php echo $Core->gcz_get_avatar($user_id,''); ?>
-            </a>
+            <?php } ?>
+            <?php if (in_array("注册/登录与个人中心",$gcz['gcz-header']['enabled'])) { ?>
+                <?php if(!is_user_logged_in()) { ?>
+                <a href="javascript:;" @click="TDLogin()">
+                    <t-icon class="t-menu__operations-icon" name="user-circle"></t-icon>
+                </a>
+                <?php } else { ?>
+                <a href="javascript:;" @click="TDSide()" style="text-decoration:none">
+                    <?php echo $Core->gcz_get_avatar($user_id,''); ?>
+                </a>
+                <?php } ?>
             <?php } ?>
         </template>
     </t-head-menu>

@@ -5,7 +5,7 @@ if( class_exists( 'CSF' ) ) {
 
     CSF::createTaxonomyOptions( $prefix, array(
         'taxonomy'  => 'circle',
-        'data_type' => 'serialize', // The type of the database save options. `serialize` or `unserialize`
+        'data_type' => 'serialize',
     ));
 
     CSF::createSection( $prefix, array(

@@ -21,8 +21,7 @@ https://td.xhhzs.cn
 ## 安装方法
 
 ### 第一种（推荐）
-请前往 https://github.com/Groupguanfang/TD/releases 下载最新的releases，并在WordPress后台上传之后启用。  
-请确保主题文件夹名为“GCZ TD”，否则报错。  
+请前往 https://github.com/Groupguanfang/TD/releases 下载最新的releases，并在WordPress后台上传之后启用。
 
 ### 第二种
 如果您擅长git命令，即可使用下面的命令下载源码：
@@ -30,7 +29,6 @@ https://td.xhhzs.cn
 $ cd {你的站点目录}/wp-content/themes
 $ git clone https://github.com/Groupguanfang/TD
 ```
-请将主题文件夹名“TD”重命名为“GCZ TD”，否则报错。  
 之后，您即可在WordPress后台启用本主题。
 
 # 打赏

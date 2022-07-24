@@ -4,7 +4,7 @@ Theme URI: https://td.xhhzs.cn
 Author: Zero
 Author URI: https://blog.xhhzs.cn
 Description: 无限自定义主题，可以随时添加任何自定义模块和短代码用于文章、页面、帖子等任何地方。内置虎皮椒支付系统、会员、积分余额私信系统等，让这款主题变的更为强大。
-Version: 0.6
+Version: 0.8.5
 Text Domain: gcz
 */
 a {
@@ -26,6 +26,10 @@ a:hover::after {
 a:visited {
     color: var(--td-brand-color);
 }
+a.noicon:after {
+    content: '';
+    display: none;
+}
 a[target=_blank]:after {
     content: " ";
     transition: ease 0.2s;
@@ -42,6 +46,9 @@ a[target=_blank]:after {
     mask-image: url('data:image/svg+xml;charset=utf-8,<svg t="1657695280048" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="683" width="200" height="200"><path d="M512 981.333333C252.8 981.333333 42.666667 771.2 42.666667 512S252.8 42.666667 512 42.666667s469.333333 210.133333 469.333333 469.333333-210.133333 469.333333-469.333333 469.333333z m0-85.333333a384 384 0 1 0 0-768 384 384 0 0 0 0 768z m85.333333-409.002667l-225.834666 225.834667-60.330667-60.330667L537.002667 426.666667H384V341.333333h298.666667v298.666667h-85.333334v-153.002667z" p-id="684"></path></svg>');
     -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg t="1657695280048" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="683" width="200" height="200"><path d="M512 981.333333C252.8 981.333333 42.666667 771.2 42.666667 512S252.8 42.666667 512 42.666667s469.333333 210.133333 469.333333 469.333333-210.133333 469.333333-469.333333 469.333333z m0-85.333333a384 384 0 1 0 0-768 384 384 0 0 0 0 768z m85.333333-409.002667l-225.834666 225.834667-60.330667-60.330667L537.002667 426.666667H384V341.333333h298.666667v298.666667h-85.333334v-153.002667z" p-id="684"></path></svg>');
 }
+body {
+    font-family:'Open Sans',sans-serif;
+}
 article {
     font-size: 16px;
 }
@@ -55,8 +62,11 @@ li::marker {
     content: '';
     display: none;
 }
-.t-menu a:visited {
-    color: #fff;
+.t-menu a:visited,.t-menu a {
+    color: var(--td-font-gray-1);
+}
+.t-menu--dark .t-menu a:visited,.t-menu--dark .t-menu a {
+    color: var(--td-text-color-anti);
 }
 #gcz-article {
     padding: 10px 20px;

@@ -28,9 +28,8 @@ if( class_exists( 'CSF' ) ) {
         )
     ));
 }
-if(!class_exists('GCZ_Walker_Menu')) {
-    class GCZ_Walker_Menu extends Walker_Nav_Menu {
-        
+class GCZ_Walker_Menu extends Walker_Nav_Menu {
+    
         public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
             $meta = get_post_meta( $item->ID, 'gcz_menu', true );
             
@@ -74,5 +73,4 @@ if(!class_exists('GCZ_Walker_Menu')) {
             $output .= "\n$indent<ul class='gcz-radius sub-menu depth-".$depth."'>\n";
         }
         
-    }
 }

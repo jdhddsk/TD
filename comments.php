@@ -101,4 +101,4 @@ $Core   = new GCZ_Core;
         ?>
     </div>
 </div>
-<script src="<?php echo GCZ_URI; ?>/Core/Script/PC/Comment.js"></script>
+<script src="<?php echo GCZ_URI; ?>/PC/Assets/Comment.js"></script>

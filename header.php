@@ -36,6 +36,6 @@
     </head>
     <body>
         <!--头部-->
-        <header id="td-header">
+        <header class="t-layout__header" id="td-header">
             <?php gcz_get_template('Header',true); ?>
         </header>

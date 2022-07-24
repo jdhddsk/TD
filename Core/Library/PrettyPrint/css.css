@@ -3,7 +3,6 @@
     border: 0 !important;
     width: 100%;
     padding: 1.5em;
-    font-family: "Courier 10 Pitch",Courier,monospace;
     font-size: .9375rem;
     line-height: 1.6;
     max-width: 100%;
@@ -14,10 +13,18 @@ ol.linenums {
     margin-bottom: 0!important;
     color: #656d78!important;
 }
+pre.linenums:before {
+    content: " ";
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDU0IDE0Ij48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiPjxjaXJjbGUgY3g9IjYiIGN5PSI2IiByPSI2IiBmaWxsPSIjRkY1RjU2IiBzdHJva2U9IiNFMDQ0M0UiIHN0cm9rZS13aWR0aD0iLjUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI2IiBjeT0iNiIgcj0iNiIgZmlsbD0iI0ZGQkQyRSIgc3Ryb2tlPSIjREVBMTIzIiBzdHJva2Utd2lkdGg9Ii41Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI0NiIgY3k9IjYiIHI9IjYiIGZpbGw9IiMyN0M5M0YiIHN0cm9rZT0iIzFBQUIyOSIgc3Ryb2tlLXdpZHRoPSIuNSI+PC9jaXJjbGU+PC9nPjwvc3ZnPg==) no-repeat;
+    width: 100%;
+    display: block;
+}
 li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
     padding-left: .5em;
     background-color: #272822;
     list-style-type: decimal;
+    margin: 0;
+    font-family: Hack,consolas,sans-serif,monospace !important;
 }
 pre code {
     padding: 0;

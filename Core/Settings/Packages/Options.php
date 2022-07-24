@@ -6,6 +6,7 @@ if( class_exists( 'CSF' ) ) {
 
     CSF::createOptions( $prefix, array(
         'menu_title'            => '主题',
+        'framework_title'       => 'GCZ主题设置',
         'menu_position'         => '61',
         'menu_slug'             => 'gcz-main-settings',
         'menu_icon'             => 'dashicons-feedback',
@@ -98,6 +99,28 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'gcz-modules',
         'title' => '定制',
         'icon'  => 'iconoir-add-circled-outline',
+    ));
+    CSF::createSection( $prefix, array(
+        'parent'      => 'gcz-modules',
+        'title'  => '电脑端头部',
+        'icon'   => 'iconoir-smartphone-device',
+        'fields' => array(
+            array(
+                'id'           => 'gcz-header',
+                'type'         => 'sorter',
+                'title'        => '顶部右侧按钮',
+                'default'      => array(
+                    'enabled'    => array(
+                        'mode'      => '暗黑模式切换',
+                        'search'    => '搜索',
+                        'user'      => '注册/登录与个人中心',
+                    ),
+                    'disabled'   => array(
+                        
+                    ),
+                ),
+            ),
+        ),
     ));
     /**
      * 手机端模块设置
@@ -640,16 +663,6 @@ if( class_exists( 'CSF' ) ) {
                                     'icon'      => 'fa fa-gear',
                                     'fields'    => array(
                                         array(
-                                            'id'          => 'gcz_vips_people',
-                                            'type'        => 'select',
-                                            'title'       => '已经购买此等级的用户',
-                                            'chosen'      => true,
-                                            'multiple'    => true,
-                                            'placeholder' => '空',
-                                            'desc'        => '设置之后让此人加入这个等级。每个用户只能有一个等级，否则网站出错<br>一般情况下请勿修改此内容',
-                                            'options'     => 'user',
-                                        ),
-                                        array(
                                             'id'          => 'gcz-vips-people-false',
                                             'type'        => 'spinner',
                                             'title'       => '假数据（已经加入此等级的人数）',
@@ -704,16 +717,7 @@ if( class_exists( 'CSF' ) ) {
                                 'title'     => '高级设置',
                                 'icon'      => 'fa fa-gear',
                                 'fields'    => array(
-                                    array(
-                                        'id'          => 'gcz_level_people',
-                                        'type'        => 'select',
-                                        'title'       => '此等级的用户',
-                                        'chosen'      => true,
-                                        'multiple'    => true,
-                                        'placeholder' => '空',
-                                        'desc'        => '设置之后让此人加入这个等级。每个用户只能有一个等级，否则网站出错<br>一般情况下请勿修改此内容',
-                                        'options'     => 'user',
-                                    ),
+                                    
                                 )
                             ),
                         )

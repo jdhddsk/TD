@@ -24,5 +24,5 @@
 <?php if ($Core->isMobile()) { ?>
     <script src="<?php echo GCZ_URI; ?>/Core/Script/Mobile/Write.js"></script>
 <?php } else { ?>
-    <script src="<?php echo GCZ_URI; ?>/Core/Script/PC/Write.js"></script>
+    <script src="<?php echo GCZ_URI; ?>/PC/Assets/PC/Write.js"></script>
 <?php } ?>

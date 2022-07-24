@@ -30,22 +30,31 @@ $Core = new GCZ_Core;
                                     <div class="gcz-rounds-footer-top" style="margin: 10px 0;display: flex;justify-content: space-between;">
                                         <div class="left">
                                             <?php if ($gcz['gcz-pc-rounds-category-item'] == true) { ?>
-                                                <div style="font-size:14px;color:#888;display: flex;align-items: center;">
+                                                <div style="margin: 0 3px;font-size:14px;color:#888;display: flex;align-items: center;">
                                                     <?php echo get_the_category()[0]->name; ?>
                                                 </div>
                                             <?php } ?>
                                         </div>
                                         <div class="right" style="display: flex;">
                                             <?php if ($gcz['gcz-pc-rounds-likes'] == true) { ?>
-                                                <div style="font-size:14px;color:#888;display: flex;align-items: center;">
+                                            <t-tooltip content="<?php echo td_get_likes();?>个赞">
+                                                <div style="margin: 0 3px;font-size:14px;color:#888;display: flex;align-items: center;">
                                                     <t-icon name="thumb-up"></t-icon><?php echo td_get_likes(); ?>
                                                 </div>
+                                            </t-tooltip>
                                             <?php } ?>
                                             <?php if ($gcz['gcz-pc-rounds-view'] == true) { ?>
-                                                <div style="font-size:14px;color:#888;display: flex;align-items: center;">
+                                            <t-tooltip content="<?php echo td_get_views(); ?>热度">
+                                                <div style="margin: 0 3px;font-size:14px;color:#888;display: flex;align-items: center;">
                                                     <t-icon name="browse"></t-icon><?php echo td_get_views(); ?>
                                                 </div>
+                                            </t-tooltip>
                                             <?php } ?>
+                                            <t-tooltip content="<?php echo count_words_read_time();?>">
+                                                <div style="margin: 0 3px;font-size:14px;color:#888;display: flex;align-items: center;">
+                                                    <t-icon name="edit"></t-icon><?php echo cnwper_count_words($text); ?>
+                                                </div>
+                                            </t-tooltip>
                                         </div>
                                     </div>
                                     

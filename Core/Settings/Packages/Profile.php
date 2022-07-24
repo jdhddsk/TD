@@ -83,24 +83,40 @@ if( class_exists( 'CSF' ) ) {
                 'content' => '<h2>高级</h2>',
             ),
             array(
-                'id'            => 'gcz-fans',
-                'type'          => 'select',
-                'title'         => '关注此用户的人',
-                'chosen'        => true,
-                'multiple'      => true,
-                'options'       => 'users',
-                'placeholder'   => '选择用户以让其成为此用户的粉丝',
-                'desc'          => '无特殊情况请勿修改,这个改乱了别找Zero,我不会修。'
+                'id'          => 'gcz_level',
+                'type'        => 'select',
+                'title'       => '此用户的等级',
+                'options'     => $Core->gcz_capabilities(),
             ),
             array(
-                'id'            => 'gcz-follow',
+                'id'          => 'gcz_vips',
+                'type'        => 'select',
+                'title'       => '此用户的VIP等级',
+                'options'     => $Core->gcz_vips(),
+            ),
+            array(
+                'id'            => 'gcz_fans',
+                'type'          => 'select',
+                'title'         => '关注此用户的人',
+                'multiple'      => true,
+                'attributes'    => array(
+                    'disabled'      => 'disabled'
+                ),
+                'options'       => 'users',
+                'placeholder'   => '选择用户以让其成为此用户的粉丝',
+                'desc'          => '默认不准修改。这个改乱了别找Zero,我不会修。'
+            ),
+            array(
+                'id'            => 'gcz_follow',
                 'type'          => 'select',
                 'title'         => '此用户关注的人',
-                'chosen'        => true,
                 'multiple'      => true,
                 'options'       => 'users',
+                'attributes'    => array(
+                    'disabled'      => 'disabled'
+                ),
                 'placeholder'   => '选择用户以让此用户关注',
-                'desc'          => '无特殊情况请勿修改,这个改乱了别找Zero,我不会修。'
+                'desc'          => '默认不准修改。这个改乱了别找Zero,我不会修。'
             ),
         )
     ));
